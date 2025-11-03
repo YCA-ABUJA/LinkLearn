@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkLearn - Offline Quiz & Exam App | Yazz Communication Academy</title>
+    <meta name="description" content="LinkLearn is an offline quiz and exam app developed by Yazz Communication Academy. Enterprise-grade features for educational institutions in Nigeria.">
+    <meta name="keywords" content="offline quiz app, exam platform, educational software, Yazz Communication Academy, Nigeria education, assessment tool, AI-powered testing">
+    <meta name="author" content="Yazz Communication Academy">
+    <meta property="og:title" content="LinkLearn - Offline Quiz & Exam App | Yazz Communication Academy">
+    <meta property="og:description" content="Transform education with our enterprise-grade offline assessment platform. Multi-language support, AI features, and complete security.">
+    <meta property="og:image" content="linklearn_logo.png">
+    <meta property="og:url" content="https://yourgithubusername.github.io/linklearn/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://yourgithubusername.github.io/linklearn/">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="Yazz_logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Yazz Communication Academy",
+      "url": "https://www.yazz.com.ng",
+      "logo": "Yazz_logo.png",
+      "description": "Offline Quiz & Exam App developed by Yazz Communication Academy.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Flat 2A, House 83B, EL-Habitat Close, Dogongada",
+        "addressLocality": "Abuja",
+        "addressCountry": "NG"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+234-907-986-9903",
+        "contactType": "customer service",
+        "email": "services@yazz.com.ng"
+      },
+      "sameAs": [
+        "https://www.facebook.com/100071720838256/"
+      ]
+    }
+    </script>
+    <style>
+        /* CSS Variables for Yazz Brand Colors */
+        :root {
+            --yazz-blue: #1e3a8a;
+            --yazz-gold: #d4af37;
+            --yazz-light-blue: #3b82f6;
+            --yazz-white: #ffffff;
+            --yazz-gray: #f8fafc;
+            --yazz-dark: #1e293b;
+            --yazz-green: #10b981;
+            --yazz-purple: #8b5cf6;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--yazz-dark);
+            background: linear-gradient(135deg, var(--yazz-white) 0%, var(--yazz-gray) 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+            padding: 0.5rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--yazz-blue), var(--yazz-gold));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .school-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .school-name {
+            color: var(--yazz-blue);
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .school-motto {
+            color: var(--yazz-gold);
+            font-size: 0.8rem;
+            font-style: italic;
+            text-align: center;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--yazz-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--yazz-blue), var(--yazz-gold));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--yazz-blue);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--yazz-blue), var(--yazz-light-blue));
+            color: white;
+            padding: 0.75rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.4);
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        .offline-badge {
+            background: linear-gradient(135deg, var(--yazz-green), #059669);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--yazz-blue) 0%, #2d4ba0 100%);
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.1"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--yazz-white), var(--yazz-gold));
+            border-radius: 25px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--yazz-blue);
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: float 6s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        .app-icon-image {
+            border-radius: 25px;
+        }
+
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .app-name {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff, var(--yazz-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
+        }
+
+        .app-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .developed-by {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 100px 0;
+            background: var(--yazz-white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            color: var(--yazz-blue);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--yazz-dark);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--yazz-white);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border-left: 4px solid var(--yazz-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.03), rgba(212, 175, 55, 0.03));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-card:hover:before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--yazz-blue);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: var(--yazz-gold);
+        }
+
+        .feature-card h3 {
+            color: var(--yazz-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .feature-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-list li:hover {
+            transform: translateX(5px);
+            color: var(--yazz-blue);
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: var(--yazz-green);
+            font-weight: bold;
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--yazz-gray) 0%, var(--yazz-white) 100%);
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .screenshot-item {
+            background: var(--yazz-white);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--yazz-blue);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screenshot-item:hover .screenshot-placeholder {
+            background: linear-gradient(135deg, var(--yazz-blue), var(--yazz-light-blue));
+            color: white;
+        }
+
+        .screenshot-placeholder:after {
+            content: '🔍 View';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 58, 138, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .screenshot-item:hover .screenshot-placeholder:after {
+            opacity: 1;
+        }
+
+        .video-container {
+            grid-column: 1 / -1;
+            background: var(--yazz-white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .video-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--yazz-blue), var(--yazz-purple));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder:before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .video-placeholder i {
+            position: relative;
+            z-index: 2;
+            font-size: 4rem;
+        }
+
+          /* New Styles for Added Sections */
+        .testimonials { padding: 80px 0; background: var(--yazz-gray); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .testimonial-card { background: var(--yazz-white); padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); position: relative; }
+        .testimonial-card:before { content: '"'; font-size: 5rem; color: var(--yazz-gold); position: absolute; top: -10px; left: 20px; opacity: 0.3; }
+        .testimonial-content { font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 2; }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .author-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--yazz-blue); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .author-info h4 { margin: 0; color: var(--yazz-blue); }
+        .author-info p { margin: 0; color: var(--yazz-dark); opacity: 0.7; font-size: 0.9rem; }
+
+        .comparison { padding: 80px 0; background: var(--yazz-white); }
+        .comparison-table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-radius: 10px; }
+        .comparison-table table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .comparison-table th, .comparison-table td { padding: 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        .comparison-table th { background: var(--yazz-blue); color: white; font-weight: 600; }
+        .comparison-table tr:nth-child(even) { background: var(--yazz-gray); }
+        .comparison-table .feature { font-weight: 500; }
+        .comparison-table .yes { color: var(--yazz-green); font-weight: bold; }
+        .comparison-table .no { color: #ef4444; font-weight: bold; }
+
+        .contact-form { padding: 80px 0; background: var(--yazz-gray); }
+        .contact-form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 3rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--yazz-dark); }
+        .form-control { width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; transition: all 0.3s ease; }
+        .form-control:focus { outline: none; border-color: var(--yazz-blue); box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1); }
+        textarea.form-control { min-height: 150px; resize: vertical; }
+
+        .social-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; color: white; transition: all 0.3s ease; }
+        .social-links a:hover { background: var(--yazz-gold); transform: translateY(-3px); }
+
+        .urgency-badge { background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; margin-left: 1rem; animation: pulse 1.5s infinite; }
+
+        /* Download Section */
+        .download {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--yazz-blue) 0%, #2d4ba0 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><polygon fill="white" points="500,500 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .download .section-title h2,
+        .download .section-title p {
+            color: white;
+        }
+
+        .download-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .download-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .download-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .offline-feature {
+            background: var(--yazz-green);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .requirements {
+            text-align: left;
+            margin-top: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 15px;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .requirements h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .requirements ul {
+            list-style-position: inside;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .requirements li {
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--yazz-dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--yazz-gold);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: var(--yazz-white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--yazz-white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--yazz-blue);
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--yazz-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-text {
+            color: var(--yazz-dark);
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--yazz-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .app-name {
+                font-size: 3.5rem;
+            }
+
+            .video-placeholder {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .logo-container {
+                flex: 1;
+                gap: 10px;
+            }
+
+            .school-name {
+                font-size: 1.1rem;
+            }
+
+            .school-motto {
+                font-size: 0.7rem;
+                text-align: left;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+                align-items: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .app-name {
+                font-size: 2.8rem;
+            }
+
+            .app-tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-placeholder {
+                height: 250px;
+            }
+
+            .app-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-options {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .features, .screenshots, .testimonials, .comparison, .contact-form, .download, .stats {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                gap: 8px;
+            }
+
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+
+            .school-name {
+                font-size: 1rem;
+            }
+
+            .school-motto {
+                font-size: 0.6rem;
+            }
+
+            .cta-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .app-name {
+                font-size: 2.2rem;
+            }
+
+            .app-tagline {
+                font-size: 1rem;
+            }
+
+            .app-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-icon {
+                font-size: 2rem;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: none;
+            width: 90%;
+            max-width: 900px;
+            height: 80vh;
+            overflow-y: auto;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3), 
+                        0 10px 30px rgba(0,0,0,0.2), 
+                        0 15px 45px rgba(0,0,0,0.1),
+                        inset 0 -2px 4px rgba(255,255,255,0.5);
+            transform: perspective(800px) rotateX(0deg);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .modal.show .modal-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* Legal Document Styles */
+        .legal-container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-top: 0; /* Ensure no extra padding at top */
+        }
+
+        .legal-header h1 {
+            margin: 0 0 12px 0;
+            font-size: 32px;
+        }
+
+        .legal-header p {
+            margin: 0 0 24px 0;
+            color: #6b7280;
+        }
+
+        .legal-meta {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 18px;
+        }
+
+        .legal-note {
+            background: #f8fafc;
+            border-left: 4px solid #0ea5a4;
+            padding: 12px;
+            border-radius: 6px;
+            color: #6b7280;
+            margin: 12px 0;
+        }
+
+        .legal-footer {
+            margin-top: 32px;
+            border-top: 1px solid #e6e9ee;
+            padding-top: 16px;
+            color: #6b7280;
+            font-size: 13px;
+            text-align: center;
+        }
+        .legal-section{
+             padding-top: 130px;
+             margin-top: 80px;
+
+        }
+        .legal-section h2 {
+            color: #111827;
+            font-size: 22px;
+            text-align: left;
+        }
+
+        .legal-section h3 {
+            font-size: 18px;
+            margin-top: 24px;
+            text-align: left;
+        }
+        .legal-section p {
+            padding-top: 10px;
+        }
+        .legal-section p, .legal-section ul, .legal-section ol {
+            font-size: 15px;
+            color: #6b7280;
+            text-align: left;
+        }
+
+        .legal-section ul {
+            margin-left: 20px;
+        }
+
+        .legal-section code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .legal-section a {
+            color: #0ea5a4;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .legal-header h1 {
+                font-size: 26px;
+            }
+
+            .legal-section h2 {
+                font-size: 20px;
+            }
+
+            .legal-section h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <img src="Yazz_logo.png" alt="Yazz Communication Academy Logo" width="50" height="50" class="logo-image">
+                <div class="school-info">
+                        <div class="school-name">Yazz Communication Academy</div>
+                        <div class="school-motto">Be Inspired, Learn Today, Lead Tomorrow.</div>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#screenshots">Gallery</a></li>
+                    <li><a href="#stats">Impact</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#contact">Partnership</a></li>
+                </ul>
+                <a href="#download" class="cta-button">Download Now <i class="fas fa-arrow-down"></i></a>
+                <i class="fas fa-bars mobile-menu-toggle" id="mobile-toggle"></i>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="app-icon">
+                <img src="linklearn_logo.png" alt="LinkLearn App Logo" width="120" height="120" class="app-icon-image">
+            </div>
+            <h1 class="app-name">LinkLearn</h1>
+            <p class="app-tagline">Offline Quiz & Exam Platform</p>
+            <p class="developed-by">Developed by Yazz Communication Academy</p>
+            <div class="offline-badge"><i class="fas fa-wifi-slash"></i> 100% OFFLINE - No Internet Required</div>
+            <p style="margin-top: 2rem; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto;">Transform educational assessment with our secure, intuitive platform designed for institutions, educators, and students.</p>
+            <div class="hero-buttons">
+                <a href="#download" class="cta-button"><i class="fas fa-download"></i> Download for Windows</a>
+                <a href="#screenshots" class="cta-button" style="background: transparent; border: 2px solid white;"><i class="fas fa-play-circle"></i> Watch Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proven Impact</h2>
+                <p>Trusted by educational institutions across Nigeria</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number" data-target="106">0+</div>
+                    <div class="stat-text">Active Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="stat-number" data-target="3">0+</div>
+                    <div class="stat-text">Educational Institutions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="stat-number" data-target="38">0+</div>
+                    <div class="stat-text">Assessments Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="stat-number" data-target="57">0%</div>
+                    <div class="stat-text">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Enterprise-Grade Features</h2>
+                <p>Comprehensive assessment platform with advanced capabilities</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-globe-africa"></i></div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Full localization for English, Hausa, Yoruba, and Igbo</p>
+                    <ul class="feature-list">
+                        <li>Seamless language switching</li>
+                        <li>Cultural context preservation</li>
+                        <li>Regional accessibility compliance</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Military-Grade Security</h3>
+                    <p>End-to-end encryption and secure access controls</p>
+                    <ul class="feature-list">
+                        <li>Fernet-encrypted data storage</li>
+                        <li>Role-based access control</li>
+                        <li>Limited login attempts & timeouts</li>
+                        <li>Secure password reset system</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3>Student Success Tools</h3>
+                    <p>Comprehensive learning and assessment environment</p>
+                    <ul class="feature-list">
+                        <li>Personalized learning dashboards</li>
+                        <li>Progress tracking & analytics</li>
+                        <li>Built-in Python code sandbox</li>
+                        <li>Adaptive learning pathways</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI-Powered Assessment</h3>
+                    <p>Intelligent testing with adaptive capabilities</p>
+                    <ul class="feature-list">
+                        <li>Multiple question type support</li>
+                        <li>Dynamic difficulty adjustment</li>
+                        <li>Multimedia integration</li>
+                        <li>Voice-assisted testing</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Comprehensive performance insights and reporting</p>
+                    <ul class="feature-list">
+                        <li>Real-time scoring & grading</li>
+                        <li>AI-generated feedback system</li>
+                        <li>Performance trend analysis</li>
+                        <li>Comparative ranking</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Administrative Excellence</h3>
+                    <p>Complete institutional management suite</p>
+                    <ul class="feature-list">
+                        <li>Centralized user management</li>
+                        <li>Automated assessment creation</li>
+                        <li>Bulk data processing</li>
+                        <li>Professional certificate generation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <div class="section-title">
+                <h2>Platform Experience</h2>
+                <p>Explore the intuitive interface and powerful features</p>
+            </div>
+            <div class="screenshot-grid">
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        Login Interface
+                    </div>
+                    <p>Secure authentication with role-based access</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        Student Dashboard
+                    </div>
+                    <p>Personalized learning environment</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        Assessment Interface
+                    </div>
+                    <p>Clean, focused testing experience</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        Results Analytics
+                    </div>
+                    <p>Detailed performance insights</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        Admin Control Panel
+                    </div>
+                    <p>Comprehensive management tools</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        Certificate Generator
+                    </div>
+                    <p>Professional documentation system</p>
+                </div>
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <p style="margin-top: 1.5rem; font-size: 1.2rem;">Complete platform walkthrough and feature demonstration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Educators Say</h2>
+                <p>Trusted by institutions across Nigeria</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "LinkLearn has transformed our assessment process. Student engagement increased by 40% after implementation, and the offline capability is a game-changer for our rural campus."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>Dr. Jane Amadasun</h4>
+                            <p>Principal, Greenfield College</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The multi-language support has been invaluable for our diverse student population. LinkLearn makes assessment accessible to everyone, regardless of language barriers."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Ahmed Sani</h4>
+                            <p>IT Director, Northern Educational Trust</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "As an administrator, the reporting features save me hours each week. The automated certificate generation and analytics have streamlined our entire assessment workflow."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CF</div>
+                        <div class="author-info">
+                            <h4>Chioma Franklin</h4>
+                            <p>Administrator, Excel Academy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="comparison">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose LinkLearn?</h2>
+                <p>Compare our features with traditional assessment methods</p>
+            </div>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>LinkLearn</th>
+                            <th>Traditional Methods</th>
+                            <th>Other Digital Solutions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature">Offline Operation</td>
+                            <td class="yes">Yes</td>
+                            <td class="yes">Yes</td>
+                            <td class="no">Limited</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Multi-Language Support</td>
+                            <td class="yes">4 Languages</td>
+                            <td class="no">Manual Translation</td>
+                            <td class="no">English Only</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">AI-Powered Assessment</td>
+                            <td class="yes">Advanced</td>
+                            <td class="no">Not Available</td>
+                            <td class="no">Basic</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Real-time Analytics</td>
+                            <td class="yes">Instant</td>
+                            <td class="no">Manual Processing</td>
+                            <td class="yes">Limited</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Data Security</td>
+                            <td class="yes">Military Grade</td>
+                            <td class="no">Physical Security Only</td>
+                            <td class="yes">Basic</td>
+                        </tr>
+                        <tr>
+                            <td class="feature">Cost Efficiency</td>
+                            <td class="yes">High</td>
+                            <td class="no">Low</td>
+                            <td class="yes">Medium</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to Transform Education?</h2>
+                <p>Download LinkLearn today and experience the future of assessment</p>
+            </div>
+            <div class="download-options">
+                <div class="download-card">
+                    <div class="offline-feature"><i class="fas fa-wifi-slash"></i> OFFLINE READY</div>
+                    <h3>Standard Edition</h3>
+                    <p>Complete assessment platform for single institutions</p>
+                    <a href="#" class="cta-button" style="display: inline-block; margin-top: 1.5rem; background: rgba(255,255,255,0.2); border: 2px solid white;"><i class="fas fa-download"></i> Download Installer</a>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Version 2.1.0 | 45 MB</p>
+                </div>
+                <div class="download-card">
+                    <div class="offline-feature"><i class="fas fa-server"></i> ENTERPRISE READY</div>
+                    <h3>Enterprise Edition</h3>
+                    <p>Advanced features for multiple institutions & districts</p>
+                    <a href="#contact" class="cta-button" style="display: inline-block; margin-top: 1.5rem; background: var(--yazz-gold); border: 2px solid var(--yazz-gold); color: var(--yazz-dark);"><i class="fas fa-crown"></i> Request Demo</a>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Custom Deployment | Contact Sales</p>
+                </div>
+            </div>
+            <div class="requirements">
+                <h4><i class="fas fa-list-alt"></i> System Requirements</h4>
+                <ul>
+                    <li><strong>Operating System:</strong> Windows 10 or later</li>
+                    <li><strong>Processor:</strong> 1 GHz or faster processor</li>
+                    <li><strong>Memory:</strong> 2 GB RAM minimum (4 GB recommended)</li>
+                    <li><strong>Storage:</strong> 200 MB available space</li>
+                    <li><strong>Display:</strong> 1024x768 resolution or higher</li>
+                    <li><strong>Internet:</strong> NOT REQUIRED for installation or use</li>
+                    <li><strong>Additional:</strong> Speakers/headphones for audio questions</li>
+                </ul>
+                <p style="margin-top: 1.5rem; font-weight: bold; color: var(--yazz-gold);">
+                    <i class="fas fa-check-circle"></i> Complete offline operation - deploy anywhere, anytime!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section id="contact" class="contact-form">
+  <div class="container">
+    <div class="section-title">
+      <h2>Partnership Opportunities</h2>
+      <p>Join us in transforming education across Nigeria and beyond</p>
+    </div>
+
+    <div class="contact-form-grid">
+      <div class="contact-info">
+        <h3><i class="fas fa-handshake"></i> Collaboration</h3>
+        <p>We're seeking partnerships with educational institutions, government agencies, and technology providers to expand our impact.</p>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <strong>Email:</strong> services@yca-abuja.com
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <strong>Phone:</strong> +234 907 986 9903
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>Academy:</strong> Yazz Communication Academy, Abuja
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-bullseye"></i>
+          <strong>Motto:</strong> "Be Inspired, Learn Today, Lead Tomorrow."
+        </div>
+
+        <h3 style="margin-top: 2rem;"><i class="fas fa-headset"></i> Technical Support</h3>
+        <p>Our dedicated support team ensures smooth implementation and ongoing operation of LinkLearn in your institution.</p>
+        <p style="margin-top: 1rem;"><strong>Support Hours:</strong> Monday - Friday, 8:00 AM - 5:00 PM WAT</p>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <form action="https://formspree.io/f/xblznqrb" method="POST" id="partnership-form">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" class="form-control" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" class="form-control" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="institution">Institution/Organization</label>
+            <input type="text" id="institution" name="institution" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" class="form-control" required aria-required="true"></textarea>
+          </div>
+          <button type="submit" class="cta-button" aria-label="Submit Partnership Inquiry">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>LinkLearn Platform</h3>
+                    <p>Enterprise-grade offline assessment solution developed by Yazz Communication Academy.</p>
+                    <p style="margin-top: 1rem; color: var(--yazz-gold); font-weight: bold;">
+                        <i class="fas fa-wifi-slash"></i> 100% Offline • <i class="fas fa-shield-alt"></i> Secure • <i class="fas fa-rocket"></i> High Performance
+                    </p>
+                </div>
+                <div>
+                    <h3>Platform</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#features" style="color: white; text-decoration: none;">Features</a></li>
+                        <li><a href="#screenshots" style="color: white; text-decoration: none;">Gallery</a></li>
+                        <li><a href="#download" style="color: white; text-decoration: none;">Download</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none;">Partnership</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Capabilities</h3>
+                    <ul style="list-style: none; color: #ccc;">
+                        <li><i class="fas fa-check"></i> Multi-Language Support</li>
+                        <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                        <li><i class="fas fa-check"></i> Offline Operation</li>
+                        <li><i class="fas fa-check"></i> Enterprise Security</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#" onclick="showModal('privacy')" style="color: white; text-decoration: none;">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showModal('terms')" style="color: white; text-decoration: none;">Terms of Service</a></li>
+                        <li><a href="#" onclick="showModal('data-processing')" style="color: white; text-decoration: none;">Data Processing</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Follow Us</h3>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/100071720838256/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Yazz Communication Academy. All rights reserved. | LinkLearn - Enterprise Offline Assessment Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('privacy')">&times;</span>
+            <main class="legal-container" role="main" aria-labelledby="title">
+    <header class="legal-header">
+      <h1 id="title">Privacy Notice</h1>
+      <p class="legal-meta">Last Updated: <strong>October 24, 2025</strong></p>
+      <p>This Privacy Notice explains how <strong>Yazz Communication Academy</strong> (doing business as Yazz Communication Academy) ("Company", "we", "us", or "our") collects, uses, discloses and protects personal information when you use our Services, including our website (<a href="https://linklearn.yazz.com.ng" target="_blank" rel="noopener noreferrer">linklearn.yazz.com.ng</a>) and the LinkLearn application.</p>
+    </header>
+
+    <section class="legal-section" aria-labelledby="scope">
+      <h2 id="scope">Scope & Applicability</h2>
+      <p>This Notice applies to all personal data processed by us in connection with our Services, including website visitors, account holders, students, parents/guardians, and business partners. It describes the categories of data we collect, the legal bases for processing, your rights, and how to contact us.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="information">
+      <h2 id="information">1. Information We Collect</h2>
+
+      <h3>1.1 Personal information you provide</h3>
+      <p>When you register, make a purchase, contact support, or otherwise interact with us, you may provide:</p>
+      <ul>
+        <li>Full name, username, phone number, email address, postal address and contact preferences;</li>
+        <li>Authentication data (passwords, security questions);</li>
+        <li>Educational information (student ID, course enrollments, progress records);</li>
+        <li>Billing and payment details (processed by third-party payment processors);</li>
+        <li>Communications and feedback you submit to us.</li>
+      </ul>
+
+      <h3>1.2 Payment information</h3>
+      <p>Payment processing is handled by authorized third-party payment processors (PCI-DSS compliant). We do not retain full payment card data on our servers.</p>
+
+      <h3>1.3 Educational & performance data</h3>
+      <p>We collect quiz scores, exam results, completion timestamps and progress data. This data is primarily stored locally for offline use and synchronized securely when connectivity is available.</p>
+
+      <h3>1.4 Automatically collected data</h3>
+      <p>When you use our Services, we may automatically collect technical information such as IP addresses, device and browser characteristics, operating system, usage logs, and limited geolocation (where permitted).</p>
+
+      <h3>1.5 Public and third-party sources</h3>
+      <p>We may augment our records with publicly available or commercially obtained data where permitted by law.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="use">
+      <h2 id="use">2. How We Use Your Information</h2>
+      <p>We process data for lawful purposes including:</p>
+      <ul>
+        <li>Account creation, authentication and support;</li>
+        <li>Delivery, personalization and improvement of educational content;</li>
+        <li>Payment and order fulfilment;</li>
+        <li>Security, fraud detection and abuse prevention;</li>
+        <li>Administrative notices and compliance with legal obligations;</li>
+        <li>Analysis, research and product development;</li>
+        <li>Marketing communications, where you have consented.</li>
+      </ul>
+      <p class="legal-note"><strong>We do not sell personal information.</strong></p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="legal-basis">
+      <h2 id="legal-basis">3. Legal Bases for Processing</h2>
+      <p>We rely on one or more lawful bases depending on the activity and your residence, including:</p>
+      <ul>
+        <li>Performance of a contract;</li>
+        <li>Compliance with legal obligations;</li>
+        <li>Legitimate interests (balanced against your rights);</li>
+        <li>Consent, where required (e.g., marketing cookies);</li>
+        <li>Vital or public interest (rare and limited circumstances).</li>
+      </ul>
+    </section>
+
+    <section class="legal-section" aria-labelledby="sharing">
+      <h2 id="sharing">4. Sharing & Disclosure</h2>
+      <p>We share information only as necessary and with safeguards:</p>
+      <ul>
+        <li><strong>Service providers:</strong> Hosting, analytics, payment processors, email delivery and support platforms under contractual confidentiality and security obligations.</li>
+        <li><strong>Affiliates & partners:</strong> Where needed for delivery of education services and joint programs.</li>
+        <li><strong>Legal requests & protection:</strong> To comply with court orders, legal processes or to protect rights and safety.</li>
+        <li><strong>Business transfers:</strong> In a merger, acquisition or sale of assets (with continued protections).</li>
+      </ul>
+    </section>
+
+    <section class="legal-section" aria-labelledby="cookies">
+      <h2 id="cookies">5. Cookies & Tracking Technologies</h2>
+      <p>We use cookies, web beacons and similar technologies to provide core functionality, perform analytics and, with consent, enable marketing. See our <a href="#cookie-policy">Cookie Policy</a> for details and choices.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="retention">
+      <h2 id="retention">6. Data Retention</h2>
+      <p>We retain personal data no longer than necessary for the purpose collected and/or as required by law. Educational data stored offline will remain on the device until deletion or up to <strong>two (2) years</strong> after last activity unless extended for compliance reasons.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="security">
+      <h2 id="security">7. Data Security</h2>
+      <p>We maintain administrative, technical and physical safeguards to protect personal data. Should a breach occur, we will follow legal notification requirements and inform affected individuals and regulators where required.</p>
+      <p>Report suspected security incidents to: <a href="mailto:privacy@yazz.com.ng">privacy@yazz.com.ng</a>.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="minors">
+      <h2 id="minors">8. Minors</h2>
+      <p>Our Services are intended for users aged <strong>13 years and above</strong>. We do not knowingly collect data from children under 13. If you believe we have collected a minor’s data, contact <a href="mailto:privacy@yazz.com.ng">privacy@yazz.com.ng</a> for prompt deletion.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="rights">
+      <h2 id="rights">9. Your Rights</h2>
+      <p>Subject to applicable law, you may have rights to: access, correct, delete, restrict processing, obtain portability, object to processing and withdraw consent. To exercise these rights, contact <a href="mailto:privacy@yazz.com.ng">privacy@yazz.com.ng</a>. We will respond within the statutory timeframe.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="transfers">
+      <h2 id="transfers">10. International Data Transfers</h2>
+      <p>Your data may be processed in Nigeria or other countries where our service providers operate. We implement safeguards such as Standard Contractual Clauses or equivalent measures when required by law.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="thirdparty">
+      <h2 id="thirdparty">11. Third-Party Links & Services</h2>
+      <p>Links and integrations to third parties are not governed by this Notice. Please review their privacy policies before engaging with them.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="dnt">
+      <h2 id="dnt">12. Do-Not-Track</h2>
+      <p>We do not currently respond to browser Do-Not-Track (DNT) signals due to lack of an accepted industry standard.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="regional">
+      <h2 id="regional">13. Regional Privacy Rights</h2>
+      <p>We comply with NDPR (Nigeria), GDPR (EU/UK) and relevant U.S. state privacy laws where applicable. You may lodge complaints with supervisory authorities: NDPC (Nigeria) or the relevant Data Protection Authority in your jurisdiction.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="contact">
+      <h2 id="contact">14. Contact & Requests</h2>
+      <p>For privacy inquiries, data requests, or complaints:</p>
+      <address>
+        <strong>Yazz Communication Academy</strong><br />
+        Flat 2A, House 83B, El-Habitat Close, Dogongada, Abuja<br />
+        Email: <a href="mailto:privacy@yca-abuja.com">privacy@yca-abuja.com</a><br />
+        Phone: +2349079869903
+      </address>
+    </section>
+
+    <section class="legal-section" aria-labelledby="manage">
+      <h2 id="manage">15. Manage, Review or Delete Your Data</h2>
+      <p>You can manage your data via the LinkLearn app settings or by contacting <a href="mailto:privacy@yazz.com.ng">privacy@yazz.com.ng</a>. Requests will be handled in accordance with applicable law.</p>
+    </section>
+
+    <footer class="legal-footer">
+      <p>Prepared in alignment with the Nigeria Data Protection Regulation (NDPR) and the General Data Protection Regulation (GDPR). For specific legal advice, consult a qualified attorney.</p>
+      <p>&copy; <span id="year"></span> Yazz Communication Academy</p>
+    </footer>
+  </main>
+        </div>
+    </div>
+
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('terms')">&times;</span>
+            <main class="legal-container" role="main" aria-labelledby="title">
+    <header class="legal-header">
+      <h1 id="title">Terms of Service</h1>
+      <p class="legal-meta">Last Updated: <strong>October 24, 2025</strong></p>
+      <p>These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and Yazz Communication Academy (“we,” “us” or “our”), concerning your access to and use of the LinkLearn mobile application as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “App”).</p>
+    </header>
+
+    <section class="legal-section" aria-labelledby="agreement">
+      <h2 id="agreement">AGREEMENT TO TERMS</h2>
+      <p>You agree that by accessing the App, you have read, understood, and agree to be bound by all of these Terms and Conditions. If you do not agree with all of these Terms and Conditions, then you are expressly prohibited from using the App and you must discontinue use immediately.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="supplemental">
+      <h2 id="supplemental">SUPPLEMENTAL TERMS</h2>
+      <p>We reserve the right, in our sole discretion, to make changes or modifications to these Terms and Conditions at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of these Terms and Conditions and you waive any right to receive specific notice of each such change. It is your responsibility to periodically review these Terms and Conditions to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms and Conditions by your continued use of the App after the date such revised Terms and Conditions are posted.</p>
+      <p>The information provided on the App is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the App from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</p>
+      <p>The App is intended for use by residents of [specify country, e.g., the United States] and those who access the App from [specify country, e.g., the United States]. All users who access the App from outside [specify country, e.g., the United States] do so at their own risk and are responsible for compliance with the laws of their jurisdiction.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="intellectual">
+      <h2 id="intellectual">INTELLECTUAL PROPERTY RIGHTS</h2>
+      <p>Unless otherwise indicated, the App is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the App (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of the United States, international copyright laws, and international conventions. The Content and the Marks are provided on the App “AS IS” for your information and personal use only. Except as expressly provided in these Terms and Conditions, no part of the App and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</p>
+      <p>Provided that you are eligible to use the App, you are granted a limited license to access and use the App and to download or print a copy of any portion of the Content to which you have properly gained access solely for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the App, the Content and the Marks.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="representations">
+      <h2 id="representations">USER REPRESENTATIONS</h2>
+      <p>By using the App, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update as necessary; (3) you will keep your password confidential and will not share it with any third party; (4) you will not use the App for any illegal or unauthorized purpose; and (5) your use of the App will not violate any applicable law or regulation.</p>
+      <p>If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the App (or any portion thereof).</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="registration">
+      <h2 id="registration">USER REGISTRATION</h2>
+      <p>You may be required to register with the App. You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="prohibited">
+      <h2 id="prohibited">PROHIBITED ACTIVITIES</h2>
+      <p>You may not access or use the App for any purpose other than that for which we make the App available. The App may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</p>
+      <p>As a user of the App, you agree not to:</p>
+      <ul>
+        <li>Systematically retrieve data or other content from the App to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
+        <li>Make any unauthorized use of the App, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li>
+        <li>Use a buying agent or purchasing agent to make purchases on the App.</li>
+        <li>Use the App to advertise or market products and services unrelated to LinkLearn unless otherwise approved by us.</li>
+        <li>Circumvent, disable, or otherwise interfere with security-related features of the App, including features that prevent or restrict use or copying of any Content or enforce limitations on use of the App and/or the Content contained therein.</li>
+        <li>Engage in unauthorized framing of or linking to the App.</li>
+        <li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li>
+        <li>Make improper use of our support services or engage in any other conduct that may overburden, digitally or otherwise, our infrastructure.</li>
+        <li>Use the App in a manner inconsistent with any applicable laws or regulations.</li>
+        <li>Use any information obtained from the App in order to harass, abuse, or harm another person.</li>
+        <li>Use the App as part of any effort to compete with us or to divert the services of any third party.</li>
+        <li>Attempt to bypass any measures of the App designed to prevent or restrict access to the App, or any portion of the App.</li>
+        <li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the App to you.</li>
+        <li>Delete the copyright or other proprietary rights notice from any Content.</li>
+        <li>Copy or adapt the App’s software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li>
+        <li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the App or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the App.</li>
+        <li>Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the App, or using or launching any unauthorized script or other software.</li>
+        <li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the App.</li>
+        <li>Use the App in a manner inconsistent with any applicable laws or regulations, including but not limited to educational content usage guidelines.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section" aria-labelledby="contributions">
+      <h2 id="contributions">USER GENERATED CONTRIBUTIONS</h2>
+      <p>The App may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality, and may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the App, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, "Contributions"). Contributions may be viewable by other users of the App and through third-party websites. As such, any Contributions you transmit may be treated as non-confidential and non-proprietary. When you create or make any Contributions, you thereby represent and warrant that:</p>
+      <ul>
+        <li>The creation, distribution, transmission, public display, or communication of the Contributions does not and will not infringe or misappropriate the intellectual property rights of any third party.</li>
+        <li>You are the creator of or have sufficient rights to the Contributions such that you can grant the rights contemplated by these Terms and Conditions.</li>
+        <li>You have obtained the written consent, release, and/or permission of each and every identifiable individual person in the Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of the Contributions in the manner contemplated by the App and these Terms and Conditions.</li>
+        <li>Your Contributions are not false, inaccurate, or misleading.</li>
+        <li>Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li>
+        <li>Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).</li>
+        <li>Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.</li>
+        <li>Your Contributions do not advocate the violent overthrow of any government or incite, encourage, or threaten physical harm against another.</li>
+        <li>Your Contributions do not violate any applicable law, regulation, or rule.</li>
+        <li>Your Contributions do not violate the privacy or publicity rights of any third party.</li>
+        <li>Your Contributions do not contain any material that solicits personal information from anyone under the age of 18 or exploits people under the age of 18 in a sexual or violent manner.</li>
+        <li>Your Contributions do not violate any federal or state law concerning child pornography, or otherwise intended to protect the health or well-being of minors.</li>
+        <li>Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.</li>
+        <li>Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms and Conditions, or any applicable law or regulation.</li>
+      </ul>
+      <p>Any use of the App in violation of the foregoing violates these Terms and Conditions and may result in, among other things, termination or suspension of your rights to use the App.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="license">
+      <h2 id="license">CONTRIBUTION LICENSE</h2>
+      <p>By posting your Contributions to any part of the App, you automatically grant, and you represent and warrant that you have the right to grant, to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to exploit the Contributions in any manner and for any purpose whatsoever in all formats, on or about the App, and with respect to any educational content or offline functionality, without any further notice or compensation to you or any third party.</p>
+      <p>We may remove Contributions at any time for any reason in our sole discretion. All Contributions are subject to our review and approval, and we reserve the right to reject or remove any Contributions that do not comply with these Terms and Conditions or that we deem inappropriate.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="mobile">
+      <h2 id="mobile">MOBILE APPLICATION</h2>
+      <p>If you access the App via a mobile application, then we grant you a revocable, non-exclusive, non-transferable, limited right to install and use the mobile application on wireless electronic devices owned or controlled by you, and to access and use the mobile application on such devices strictly in accordance with the terms and conditions of this mobile application license contained in these Terms and Conditions. You shall not: (1) except as permitted by applicable law, decompile, reverse engineer, disassemble, or attempt to derive the source code of the mobile application; (2) modify, adapt, or create derivative works based on the mobile application; (3) provide or otherwise make available the mobile application in any manner, including but not limited to presentation, distribution, licensing, or sale, to any third party; or (4) use the mobile application for any purpose other than educational purposes as intended by LinkLearn.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="submissions">
+      <h2 id="submissions">SUBMISSIONS</h2>
+      <p>You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the App ("Submissions") provided by you to us are non-confidential and shall become our sole property. We shall own exclusive rights, including all intellectual property rights, and shall be entitled to the unrestricted use and dissemination of these Submissions for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you. You hereby waive all moral rights to any such Submissions, and you hereby warrant that any such Submissions are original with you and that you have the right to submit such Submissions. You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your Submissions.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="management">
+      <h2 id="management">SITE MANAGEMENT</h2>
+      <p>We reserve the right, without further notice, to: (1) remove or disable access to any user-generated content or other materials that we deem, in our sole discretion, to be in violation of these Terms and Conditions; (2) suspend or terminate any user's account or ability to access and use the App for any reason, including but not limited to violations of these Terms and Conditions; and (3) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms and Conditions, including without limitation, reporting such user to law enforcement authorities.</p>
+      <p>We reserve the right to cooperate with any law enforcement authorities or court order requesting or directing us to disclose the identity or location of anyone posting any materials on or through the App. YOU WAIVE AND HOLD HARMLESS YAZZ COMMUNICATION ACADEMY AND ITS AFFILIATES, LICENSEES AND SERVICE PROVIDERS FROM ANY CLAIMS RESULTING FROM ANY ACTION TAKEN BY ANY OF THE FOREGOING PARTIES DURING OR AS A RESULT OF INVESTIGATIONS BY EITHER SUCH PARTIES OR LAW ENFORCEMENT AUTHORITIES.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="thirdparty">
+      <h2 id="thirdparty">THIRD-PARTY WEBSITES AND CONTENT</h2>
+      <p>The App may contain (or you may be sent through the App) links to other websites ("Third-Party Websites") as well as articles, photographs, text, graphics, pictures, music, sound, video, information, applications, software, and other content or items belonging to or originating from third parties ("Third-Party Content"). Such Third-Party Websites and Third-Party Content are not investigated, monitored, or checked for accuracy</p>
+    </section>
+
+    <footer class="legal-footer">
+      <p>Prepared in alignment with the Nigeria Data Protection Regulation (NDPR) and the General Data Protection Regulation (GDPR). For specific legal advice, consult a qualified attorney.</p>
+      <p>&copy; <span id="year"></span> Yazz Communication Academy</p>
+    </footer>
+  </main>
+        </div>
+    </div>
+
+    <div id="data-processing-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('data-processing')">&times;</span>
+            <main class="legal-container" role="main" aria-labelledby="title">
+    <header class="legal-header">
+      <h1 id="title">Data Processing Agreement</h1>
+      <p class="legal-meta">Last Updated: <strong>October 24, 2025</strong></p>
+      <p>This data processing agreement is adapted from the ProtonMail DPA, which can be found on this page. Organizations may use the following document as part of their GDPR compliance.</p>
+      <p>Download a PDF version of this template here.</p>
+    </header>
+
+    <section class="legal-section" aria-labelledby="data-processing-agreement">
+      <h2 id="data-processing-agreement">Data Processing Agreement — Yazz Communication Academy</h2>
+      <p>This Data Processing Agreement (“ Agreement“) forms part of the Contract for Services (“ Principal Agreement“) between</p>
+      <p>Yazz Communication Academy</p>
+      <p>Flat 2A, House 83B, El-Habitat Close, Dogongada,</p>
+      <p>FCT Abuja, Nigeria</p>
+      <p>(the “ Company”) and</p>
+      <p>_____________________</p>
+      <p>_____________________</p>
+      <p>_____________________</p>
+      <p>(the “Data Processor”)</p>
+      <p>(together as the “ Parties”)</p>
+      <p>WHEREAS</p>
+      <p>(A) The Company acts as a Data Controller.</p>
+      <p>(B) The Company wishes to subcontract certain Services, which imply the processing of personal data, to the Data Processor.</p>
+      <p>(C) The Parties seek to implement a data processing agreement that complies with the requirements of the current legal framework in relation to data processing and with the Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation).</p>
+      <p>(D) The Parties wish to lay down their rights and obligations.</p>
+      <p>IT IS AGREED AS FOLLOWS:</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="definitions">
+      <h2 id="definitions">1. Definitions and Interpretation</h2>
+      <p>1.1 Unless otherwise defined herein, capitalized terms and expressions used in this Agreement shall have the following meaning:</p>
+      <p>1.1.1 “Agreement” means this Data Processing Agreement and all Schedules;</p>
+      <p>1.1.2 “Company Personal Data” means any Personal Data Processed by a Contracted Processor on behalf of Company pursuant to or in connection with the Principal Agreement;</p>
+      <p>1.1.3 “Contracted Processor” means a Subprocessor;</p>
+      <p>1.1.4 “Data Protection Laws” means EU Data Protection Laws and, to the extent applicable, the data protection or privacy laws of any other country;</p>
+      <p>1.1.5 “EEA” means the European Economic Area;</p>
+      <p>1.1.6 “EU Data Protection Laws” means EU Directive 95/46/EC, as transposed into domestic legislation of each Member State and as amended, replaced or superseded from time to time, including by the GDPR and laws implementing or supplementing the GDPR;</p>
+      <p>1.1.7 “GDPR” means EU General Data Protection Regulation 2016/679;</p>
+      <p>1.1.8 “Data Transfer” means:</p>
+      <p>1.1.8.1 a transfer of Company Personal Data from the Company to a Contracted Processor; or</p>
+      <p>1.1.8.2 an onward transfer of Company Personal Data from a Contracted Processor to a Subcontracted Processor, or between two establishments of a Contracted Processor, in each case, where such transfer would be prohibited by Data Protection Laws (or by the terms of data transfer agreements put in place to address the data transfer restrictions of Data Protection Laws);</p>
+      <p>1.1.9 “Services” means the LinkLearn app services the Company provides.</p>
+      <p>1.1.10 “Subprocessor” means any person appointed by or on behalf of Processor to process Personal Data on behalf of the Company in connection with the Agreement.</p>
+      <p>1.2 The terms, “Commission”, “Controller”, “Data Subject”, “Member State”, “Personal Data”, “Personal Data Breach”, “Processing” and “Supervisory Authority” shall have the same meaning as in the GDPR, and their cognate terms shall be construed accordingly.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="processing">
+      <h2 id="processing">2. Processing of Company Personal Data</h2>
+      <p>2.1 Processor shall:</p>
+      <p>2.1.1 comply with all applicable Data Protection Laws in the Processing of Company Personal Data; and</p>
+      <p>2.1.2 not Process Company Personal Data other than on the relevant Company’s documented instructions.</p>
+      <p>2.2 The Company instructs Processor to process Company Personal Data.</p>
+      <p>2.3 For the avoidance of doubt, the processing of Company Personal Data under this Agreement shall include the handling of educational data, such as student records, learning progress, and related personal information processed through the LinkLearn app, in compliance with Data Protection Laws applicable to educational contexts. We also comply with GDPR where applicable to our users in the EU.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="personnel">
+      <h2 id="personnel">3. Processor Personnel</h2>
+      <p>Processor shall take reasonable steps to ensure the reliability of any employee, agent or contractor of any Contracted Processor who may have access to the Company Personal Data, ensuring in each case that access is strictly limited to those individuals who need to know / access the relevant Company Personal Data, as strictly necessary for the purposes of the Principal Agreement, and to comply with Applicable Laws in the context of that individual’s duties to the Contracted Processor, ensuring that all such individuals are subject to confidentiality undertakings or professional or statutory obligations of confidentiality.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="security">
+      <h2 id="security">4. Security</h2>
+      <p>4.1 Taking into account the state of the art, the costs of implementation and the nature, scope, context and purposes of Processing as well as the risk of varying likelihood and severity for the rights and freedoms of natural persons, Processor shall in relation to the Company Personal Data implement appropriate technical and organizational measures to ensure a level of security appropriate to that risk, including, as appropriate, the measures referred to in Article 32(1) of the GDPR.</p>
+      <p>4.2 In assessing the appropriate level of security, Processor shall take account in particular of the risks that are presented by Processing, in particular from a Personal Data Breach.</p>
+      <p>4.3 Processor shall ensure that any offline storage of Company Personal Data, including backups or archived educational data from the LinkLearn app, is secured with encryption and access controls compliant with Data Protection Laws, and that such storage is limited to what is necessary for the Services.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="subprocessing">
+      <h2 id="subprocessing">5. Subprocessing</h2>
+      <p>5.1 Processor shall not appoint (or disclose any Company Personal Data to) any Subprocessor unless required or authorized by the Company.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="data-subject">
+      <h2 id="data-subject">6. Data Subject Rights</h2>
+      <p>6.1 Taking into account the nature of the Processing, Processor shall assist the Company by implementing appropriate technical and organisational measures, insofar as this is possible, for the fulfilment of the Company obligations, as reasonably understood by Company, to respond to requests to exercise Data Subject rights under the Data Protection Laws.</p>
+      <p>6.2 Processor shall:</p>
+      <p>6.2.1 promptly notify Company if it receives a request from a Data Subject under any Data Protection Law in respect of Company Personal Data; and</p>
+      <p>6.2.2 ensure that it does not respond to that request except on the documented instructions of Company or as required by Applicable Laws to which the Processor is subject, in which case Processor shall to the extent permitted by Applicable Laws inform Company of that legal requirement before the Contracted Processor responds to the request.</p>
+      <p>6.3 Assistance under this section shall include support for rights related to educational data, such as access to or rectification of student information processed via the LinkLearn app.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="breach">
+      <h2 id="breach">7. Personal Data Breach</h2>
+      <p>7.1 Processor shall notify Company without undue delay upon Processor becoming aware of a Personal Data Breach affecting Company Personal Data, providing Company with sufficient information to allow the Company to meet any obligations to report or inform Data Subjects of the Personal Data Breach under the Data Protection Laws.</p>
+      <p>7.2 Processor shall co-operate with the Company and take reasonable commercial steps as are directed by Company to assist in the investigation, mitigation and remediation of each such Personal Data Breach.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="impact">
+      <h2 id="impact">8. Data Protection Impact Assessment and Prior Consultation</h2>
+      <p>Processor shall provide reasonable assistance to the Company with any data protection impact assessments, and prior consultations with Supervising Authorities or other competent data privacy authorities, which Company reasonably considers to be required by article 35 or 36 of the GDPR or equivalent provisions of any other Data Protection Law, in each case solely in relation to Processing of Company Personal Data by, and taking into account the nature of the Processing and information available to, the Contracted Processors.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="deletion">
+      <h2 id="deletion">9. Deletion or return of Company Personal Data</h2>
+      <p>9.1 Subject to this section 9 Processor shall promptly and in any event within 10 business days of the date of cessation of any Services involving the Processing of Company Personal Data (the “Cessation Date”), delete and procure the deletion of all copies of those Company Personal Data.</p>
+      <p>9.2 This obligation includes the secure deletion of any offline stored educational data from the LinkLearn app, ensuring no residual copies remain accessible.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="audit">
+      <h2 id="audit">10. Audit rights</h2>
+      <p>10.1 Subject to this section 10, Processor shall make available to the Company on request all information necessary to demonstrate compliance with this Agreement, and shall allow for and contribute to audits, including inspections, by the Company or an auditor mandated by the Company in relation to the Processing of the Company Personal Data by the Contracted Processors.</p>
+      <p>10.2 Information and audit rights of the Company only arise under section 10.1 to the extent that the Agreement does not otherwise give them information and audit rights meeting the relevant requirements of Data Protection Law.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="transfer">
+      <h2 id="transfer">11. Data Transfer</h2>
+      <p>11.1 The Processor may not transfer or authorize the transfer of Data to countries outside the EU and/or the European Economic Area (EEA) without the prior written consent of the Company. If personal data processed under this Agreement is transferred from a country within the European Economic Area to a country outside the European Economic Area, the Parties shall ensure that the personal data are adequately protected. To achieve this, the Parties shall, unless agreed otherwise, rely on EU approved standard contractual clauses for the transfer of personal data.</p>
+      <p>11.2 Any data transfers shall consider the sensitivity of educational data processed for the LinkLearn app, ensuring compliance with Data Protection Laws for such transfers.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="general">
+      <h2 id="general">12. General Terms</h2>
+      <p>12.1 Confidentiality. Each Party must keep this Agreement and information it receives about the other Party and its business in connection with this Agreement (“Confidential Information”) confidential and must not use or disclose that Confidential Information without the prior written consent of the other Party except to the extent that:</p>
+      <p>(a) disclosure is required by law;</p>
+      <p>(b) the relevant information is already in the public domain.</p>
+      <p>12.2 Notices. All notices and communications given under this Agreement must be in writing and will be delivered personally, sent by post or sent by email to the address or email address set out in the heading of this Agreement at such other address as notified from time to time by the Parties changing address.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="governing">
+      <h2 id="governing">13. Governing Law and Jurisdiction</h2>
+      <p>13.1 This Agreement is governed by the laws of _______________.</p>
+      <p>13.2 Any dispute arising in connection with this Agreement, which the Parties will not be able to resolve amicably, will be submitted to the exclusive jurisdiction of the courts of _________________, subject to possible appeal to __________________________________.</p>
+    </section>
+
+    <section class="legal-section" aria-labelledby="signature">
+      <h2 id="signature">IN WITNESS WHEREOF</h2>
+      <p>This Agreement is entered into with effect from the date first set out below.</p>
+      <p>Your Company</p>
+      <p>Signature ______________________________</p>
+      <p>Name: ________________________________</p>
+      <p>Title: _________________________________</p>
+      <p>Date Signed: ___________________________</p>
+      <p>Processor Company</p>
+      <p>Signature ______________________________</p>
+      <p>Name _________________________________</p>
+      <p>Title __________________________________</p>
+      <p>Date Signed ____________________________</p>
+    </section>
+
+    <footer class="legal-footer">
+      <p>Prepared in alignment with the Nigeria Data Protection Regulation (NDPR) and the General Data Protection Regulation (GDPR). For specific legal advice, consult a qualified attorney.</p>
+      <p>&copy; <span id="year"></span> Yazz Communication Academy</p>
+    </footer>
+  </main>
+        </div>
+    </div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Animate stats counter
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (stat.getAttribute('data-target') === '57' ? '%' : '+');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + (stat.getAttribute('data-target') === '57' ? '%' : '+');
+                    }
+                }, 20);
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        let statsAnimated = false;
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    
+                    // Trigger stats animation when stats section is visible
+                    if (entry.target.classList.contains('stat-card') && !statsAnimated) {
+                        animateStats();
+                        statsAnimated = true;
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.feature-card, .screenshot-item, .download-card, .stat-card, .contact-info').forEach(element => {
+            element.style.opacity = '0';
+            observer.observe(element);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.backgroundPosition = `center ${scrolled * 0.5}px`;
+        });
+
+        // Form submission handling
+        document.getElementById('partnership-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Formspree will handle the submission
+            // You can add loading state here
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual Formspree submission)
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            }, 2000);
+        });
+
+        // Lazy loading for images (when added)
+        if ('loading' in HTMLImageElement.prototype) {
+            // Browser supports lazy loading
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        }
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Modal functions
+        function showModal(id) {
+            const modal = document.getElementById(id + '-modal');
+            modal.style.display = "block";
+            modal.classList.add('show');
+            modal.querySelector('.modal-content').focus();
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id + '-modal');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('show');
+                setTimeout(() => {
+                    event.target.style.display = "none";
+                }, 300);
+            }
+        }
+
+        // Focus trapping in modal
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    const first = focusable[0];
+                    const last = focusable[focusable.length - 1];
+                    if (e.shiftKey) {
+                        if (document.activeElement === first) {
+                            last.focus();
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === last) {
+                            first.focus();
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
